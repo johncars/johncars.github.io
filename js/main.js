@@ -40,16 +40,14 @@ $("#submity").click(function (e) {
     if (form.checkValidity() === false) {
         event.stopPropagation();
     }else{
-        let r = Math.random().toString(36).substring(7);
+        let r = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
         personalInfo.nombre = $("#nombre").val();
         personalInfo.apellido = $("#apellido").val();
         personalInfo.correo = $("#correo").val();
         infoBuyer = new InfoBuyer(personalInfo,carInfo,carList);
         if(carList.length>1 && carInfo.asientos!=null, carInfo.añoModelo!=null,carInfo.años!=null && carInfo.precio!=null){
             
-            infoBuyer.carList.forEach(element => {
-                database.ref(r+"/Carros").push().set(element);
-            });
+            
             database.ref(r).set({
                 "Cliente":{
                     "Nombre":infoBuyer.personalInfo.nombre,
@@ -62,6 +60,9 @@ $("#submity").click(function (e) {
                     "Año del modelo":infoBuyer.carInfo.añoModelo,
                     "Años": infoBuyer.carInfo.años,
                 }
+            });
+            infoBuyer.carList.forEach(element => {
+                database.ref(r+"/Carros").push().set(element);
             });
             $('#exampleModalCenter').modal('show');
         }
