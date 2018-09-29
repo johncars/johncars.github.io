@@ -1,0 +1,239 @@
+
+
+body {
+  height: 100%;
+  position: absolute;
+  margin:0;
+  width: 100%;
+  font-family: 'Quicksand', sans-serif !important;
+  font-size: 24px;
+  background-color:#f3f3f3 !important;
+}
+.mask:hover{
+  background-color: rgba(255, 255, 255, 0.5) !important;
+}
+#headerMask{
+  background-color: rgba(0, 0, 0, 0.65) !important;
+  flex-direction: column;
+  height: 100%;
+  width:100%;
+  margin: 0 !important;
+  display: flex;
+  transition: all 1s;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  background-color: rgba(0, 0, 0, 0.65);
+}
+.modal-content{
+  padding: 24px;
+}
+#header{
+  height: 100vh;
+  width:100%;
+  padding: 0 !important;
+  background-attachment: fixed;
+  background-image: url("/img/background-header.jpeg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+#regresador:hover{
+  bottom:35px !important;
+}
+.goUp{
+  bottom: 20px !important;
+  
+}
+.needs-validation{
+  font-size: 24px !important;
+  padding: 24px;
+}
+.form-control{
+  font-size: 24px !important;
+    padding: 24px !important;
+}
+.next{
+  color: #f9a825;
+  position: fixed;
+  transition: bottom 0.5s;
+  bottom: -50px;
+  width: 140px;
+  margin-right: -70px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  padding: 20px;
+  background: white;
+  right: 50%;
+  border-radius: 50px;
+}
+#regresador{
+padding: 1vh;
+    display: flex;
+    bottom:-10vh;
+  justify-content: center;
+  transition: bottom 0.5s;
+  font-size: 20px;
+  cursor: pointer;
+  position: fixed;
+    right: 5vw;
+    height: 7vh;
+    width: 7vh;
+  background: #f9a825 !important;
+}
+.johnbutton{
+  border-radius: 50px !important;
+    border-color: transparent !important;
+    min-height: 50px;
+    font-size: 16px !important;
+    color: white !important;
+    min-width: 150px;
+    background: #00838f !important;
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px !important;
+    left: 50%;
+    margin-left: -75px !important;
+    margin-bottom: 30px !important;
+}
+#empezar{
+  border-radius: 50px;
+  border-color: transparent;
+  min-height: 50px;
+  font-size: 16px;
+  min-width: 150px;
+  background: #f9a825 !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#logo{
+  max-width:70vw;
+  min-width:35vw;
+  max-height: 65%;
+  padding-top: 60px;
+}
+#title{
+  font-size: 30px;
+  font-weight: 800;
+  color: white;
+  margin: 5vh;
+}
+.clicked{
+  background-color: rgba(255, 255, 255, 0.3) !important;
+  
+}
+.navItem{
+  padding: 20px;
+  cursor: pointer;
+}
+.navy{
+  position: absolute;
+    top: 0;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    color: white;
+    font-size: 1.6em;
+}
+.formyLabel{
+  padding-right: 20px;
+}
+.formyItem{
+  padding: 10px;
+}
+.formy{
+  color: #242121 !important;
+  font-size: 3em;
+  padding: 24px;
+}
+.mask{
+  flex-direction: column;
+  height: 100%;
+  width:100%;
+  margin: 0 !important;
+  display: flex;
+  transition: all 1s;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  background-color: rgba(0, 0, 0, 0.65);
+}
+.titleItem{
+  font-size: 50px;
+  font-weight: 600;
+}
+.rowItem{
+  cursor: pointer;
+  padding: 0 !important;
+  color: white;
+  overflow: hidden;
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+   align-items: center;
+   justify-content: center;
+}
+.rowType{
+  min-height: 350px;
+  width: 100%;
+  margin: 0 !important;
+}
+#background{
+  height: 100%;
+}
+
+#menu{
+  cursor: pointer;
+  display: none;
+
+}
+.rowCar{
+  padding: 10px;
+}
+.labelCar{
+  font-size: 2em;
+  color: white;
+  font-weight: 500;
+}
+
+.slider-handle{
+  background: #f9a825 !important;
+}
+.slider-selection {
+	background: #f9a825 !important;
+}
+
+@media screen and (max-width: 577px) {
+  .footer {
+    padding: 10px;
+    position:fixed !important;
+  height: 50px;
+  overflow: hidden;
+  left:0px;
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  bottom: 0px;
+  transition: bottom 1s;
+  width:100%;
+
+  }
+  
+  .containerSlide{
+    display: none;
+  }
+  #menu{
+    display: flex;
+  }
+  .navy{
+    display: none;
+  }
+}
