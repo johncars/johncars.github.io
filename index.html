@@ -1,239 +1,423 @@
-<!doctype html>
-<html class="no-js" lang="">
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-		<script src="https://www.gstatic.com/firebasejs/5.4.1/firebase-app.js"></script>
-		<script src="https://www.gstatic.com/firebasejs/5.4.1/firebase-database.js"></script>
-	<script>
-		// Initialize Firebase
-		var config = {
-			apiKey: "AIzaSyD2j3HB7yG-3Tvg4QkPA1_o2ORo6cOidXc",
-			authDomain: "johncars-a3e44.firebaseapp.com",
-			databaseURL: "https://johncars-a3e44.firebaseio.com",
-			projectId: "johncars-a3e44",
-			storageBucket: "johncars-a3e44.appspot.com",
-			messagingSenderId: "650756459368"
-		};
-		firebase.initializeApp(config);
-	</script>
-	<meta charset="utf-8">
-	<meta http-equiv="x-ua-compatible" content="ie=edge">
-	<title></title>
-	<meta name="description" content="">
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-	 crossorigin="anonymous">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
-	<link rel="manifest" href="site.webmanifest">
-	<link rel="icon" type="image/png" href="icon.png">
-	<link rel="stylesheet" href="css/app.css">
-
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.2.0/css/bootstrap-slider.min.css"
-	 integrity="sha256-NGswHEy6gjXxyLL+vBBHigA1kGliPHt+7BBPBzntzAw=" crossorigin="anonymous" />
-	<!-- Font Awesome -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-	<!-- Bootstrap core CSS -->
-	<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
-	<!-- Material Design Bootstrap -->
-	<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.11/css/mdb.min.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://kit.fontawesome.com/6fb50fde26.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>Cimon de Cima</title>
 </head>
 
 <body>
+    <div id="buttonChat">
+        <i class="fas fa-comments"></i>
+    </div>
+    <div id="chatbot" class="gone">
+        <div id="chatHeader"></div>
+        <div id="chatbody">
+            <div id="formCima" style="padding:10px">
+                <p style="padding-top:20px; text-align:center">
+                    <h5>¡Hola soy Cimón!,</h5> <br>Llena este formulario para empezar a
+                    conocernos.
+                </p>
+                <form id="formulario">
+                    <div class="form-group">
+                        <input type="number" maxlength="8" pattern="\d{8}" type="email" class="form-control"
+                            id="dniinput" aria-describedby="emailHelp" placeholder="DNI" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="number" maxlength="11" pattern="\d{11}" type="password" class="form-control"
+                            id="rucinput" placeholder="RUC" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" class="form-control" id="correoinput" aria-describedby="emailHelp"
+                            placeholder="Correo">
+                    </div>
+                    <div class="form-group">
+                        <input type="number" maxlength="9" type="password" class="form-control" id="celularinput"
+                            placeholder="Celular">
+                    </div>
+                    <div class="form-group form-check visacheck">
+                        <div id="Visalogo"></div>
+                        <input id="visaInput" style="height: 35px;" type="checkbox" class="form-check-input">
+                        <label class="form-check-label">Acepto compartir mis datos </label>
+                    </div>
 
-	<div id="background">
-
-		<div id="header">
-			<div id="headerMask">
-				<!--<div class="container-fluid navy">
-					<div class="navItem">Inicio</div>
-					<div class="navItem">¿Quienes somos?</div>
-					<div class="navItem">Contactanos</div>
-				</div>-->
-				<img id="logo" src="/img/logo.png" alt="">
-				<h1 id="title" class="text-center">Encuentra tu auto ideal a un excelente precio</h1>
-				<a name="" id="empezar" class="btn btn-primary" href="#" role="button">Empecemos</a>
-			</div>
-		</div>
-		<div id="first_section">
-			<div class="jumbotron jumbotron-fluid" style="background-color: black;
-			color: white">
-				<div class="container">
-					<h1 class="display-3">1. Elige la marca</h1>
-					<p class="lead">¡Todos tenemos una marca favorita!</p>
-					<hr class="my-2">
-
-				</div>
-			</div>
-			<div class="row rowType">
-				<div class="col-md-4 rowItem" style="background-image: url(/img/mercedes.jpg)">
-					<div id="mercedes" class="mask">
-						<h1 class="titleItem">Mercedes</h1>
-					</div>
-				</div>
-				<div class="col-md-4 rowItem" style="background-image: url(/img/audi.jpg)">
-					<div id="audi" class="mask">
-						<h1 class="titleItem">Audi</h1>
-					</div>
-				</div>
-				<div class="col-md-4 rowItem" style="background-image: url(/img/ford.jpg)">
-					<div id="ford" class="mask">
-						<h1 class="titleItem">Ford</h1>
-					</div>
-				</div>
-			</div>
-			<div class="row rowType">
-				<div class="col-md-4 rowItem" style="background-image: url(/img/lamborgini.jpg)">
-					<div id="lamborgini" class="mask">
-						<h1 class="titleItem">Lamborgini</h1>
-					</div>
-				</div>
-				<div class="col-md-4 rowItem" style="background-image: url(/img/ferrari.jpg)">
-					<div id="ferrari" class="mask">
-						<h1 class="titleItem">Ferrari</h1>
-					</div>
-				</div>
-				<div class="col-md-4 rowItem" style="background-image: url(/img/porche.jpg)">
-					<div id="porche" class="mask">
-						<h1 class="titleItem">Porche</h1>
-					</div>
-				</div>
-			</div>
-			<div class="row rowType">
-				<div class="col-md-4 rowItem" style="background-image: url(/img/kia.jpg)">
-					<div id="kia" class="mask">
-						<h1 class="titleItem">Kia</h1>
-					</div>
-				</div>
-				<div class="col-md-4 rowItem" style="background-image: url(/img/honda.jpg)">
-					<div id="honda" class="mask">
-						<h1 class="titleItem">Honda</h1>
-					</div>
-				</div>
-				<div class="col-md-4 rowItem" style="background-image: url(/img/chevrolet.jpg)">
-					<div id="chevrolet" class="mask">
-						<h1 class="titleItem">Chevrolet</h1>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div id="second_section">
-			<div class="jumbotron jumbotron-fluid" style="background-color: black;
-				color: white">
-				<div class="container">
-					<h1 class="display-3">2. Danos los detalles</h1>
-					<p class="lead">¡Especifica las características que buscas en tu auto soñado!</p>
-					<hr class="my-2">
-				</div>
-
-			</div>
-			<div class="formy">
-				<p class="formyItem">
-					<span class="formyLabel" id="SliderVal1">Precio 10000 $</span> <input id="ex1" type="text" class="span2" value=""
-					 data-slider-min="10000" data-slider-max="30000" data-slider-step="1000" data-slider-tooltip="hide" />
-				</p>
-				<p class="formyItem">
-					<span class="formyLabel" id="SliderVal2">Asientos: 4</span> <input id="ex2" type="text" class="span2" value=""
-					 data-slider-min="4" data-slider-max="8" data-slider-step="1" data-slider-tooltip="hide" />
-				</p>
-				<p class="formyItem">
-					<span class="formyLabel" id="SliderVal3">Año del Modelo : 1940 </span> <input id="ex3" type="text" class="span2"
-					 value="" data-slider-min="1940" data-slider-max="2018" data-slider-step="1" data-slider-tooltip="hide" />
-				</p>
-				<p class="formyItem">
-					<span class="formyLabel" id="SliderVal4">Años del auto: 1</span> <input id="ex4" type="text" class="span2" value=""
-					 data-slider-min="1" data-slider-max="10" data-slider-step="1" data-slider-tooltip="hide" />
-				</p>
-			</div>
-		</div>
-		<div id="third_section">
-			<div class="jumbotron jumbotron-fluid" style="background-color: black;
-				color: white">
-				<div class="container">
-					<h1 class="display-3">3. Pon tus datos</h1>
-					<p class="lead">¡Brindanos tus datos para poder enviarte ofertas segun lo especificado!</p>
-					<hr class="my-2">
-				</div>
-
-			</div>
-			<form class="needs-validation" id="johnform" novalidate>
-				<div class="form-row">
-					<div class="col-md-4 mb-3">
-						<label for="nombre">Nombre</label>
-						<input type="text" class="form-control" id="nombre" placeholder="Nombre" value="" required>
-						<div class="valid-feedback">
-							Valido!
-						</div>
-						<div class="invalid-feedback">
-							No puede estar vacio
-						</div>
-					</div>
-					<div class="col-md-4 mb-3">
-						<label for="apellido">Apellido</label>
-						<input type="text" class="form-control" id="apellido" placeholder="Apellido" value="" required>
-						<div class="valid-feedback">
-							Valido!
-						</div>
-						<div class="invalid-feedback">
-							No puede estar vacio
-						</div>
-					</div>
-					<div class="col-md-4 mb-3">
-						<label for="correo">Correo</label>
-						<div class="input-group">
-							<input type="email" class="form-control" id="correo" placeholder="Correo" aria-describedby="inputGroupPrepend"
-							 required>
-							<div class="valid-feedback">
-								Valido!
-							</div>
-							<div class="invalid-feedback">
-								Un correo valido porfavor
-							</div>
-						</div>
-					</div>
-				</div>
-				<button id="submity" class="btn johnbutton" type="submit">Submit form</button>
-			</form>
-
-		</div>
-	</div>
-	<div class="next" id="next1"><span style="font-size: 2em;">Siguiente</span> </div>
-	<div class="next" id="next2"><span style="font-size: 2em;">Siguiente</span> </div>
-	<div id="regresador"><span style="color:white;" class="glyphicon glyphicon-chevron-up "></span> </div>
-
-	<div class="modal" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-	 aria-hidden="true">
-		<div class="modal-dialog modal-dialog-centered" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h1 class="modal-title" id="exampleModalLongTitle">¡Lo hiciste!</h1>
-					
-				</div>
-				<h2 class="modal-body">
-					¡Te enviaremos un correo en cuanto tengamos una oferta para ti!
-				</h2>
-			</div>
-		</div>
-	</div>
-	<!-- JQuery -->
-	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-	 crossorigin="anonymous"></script>
-	<!-- Bootstrap tooltips -->
-	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
-	<!-- Bootstrap core JavaScript -->
-	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js"></script>
-	<!-- MDB core JavaScript -->
-	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.11/js/mdb.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.2.0/bootstrap-slider.min.js" integrity="sha256-tDcb6zRMjjdonaeNQujdwW5FQdABco7S2Z60J4cbH9s="
-	 crossorigin="anonymous"></script>
-	<script src="js/main.js"></script>
-
-	<!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
-	<script>
-		window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
-		ga('create', 'UA-XXXXX-Y', 'auto'); ga('send', 'pageview')
-	</script>
-	<script src="https://www.google-analytics.com/analytics.js" async defer></script>
+                    <div style="width:100%; display:flex;justify-content: center;">
+                        <button id="buttonform" style="border-style: none;
+                        background-color: blueviolet;
+                        border-color: transparent;background-color: darkviolet;" type="submit"
+                            class="btn btn-primary">Comenzar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div id="chatbottom">
+            <div id="textMessage">
+                <input id="textbox" placeholder="Escribe tu mensaje aqui" type="text">
+            </div>
+            <div id="buttonContainer">
+                <div id="buttonSend">
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+    crossorigin="anonymous"></script>
+<script src="https://apis.google.com/js/api.js"></script>
+<script>
+    var access_token = "";
+    var counter = 0;
+    var message = "";
+    var info = {
+        'context': ""
+    };
+    var mensajeVuelta = "";
+    var chatbody = document.getElementById("chatbody");
+    $("#buttonChat").click(function () {
+        if ($("#chatbot").hasClass("gone")) {
+            $("#chatbot").removeClass("gone");
+        } else {
+            $("#chatbot").addClass("gone");
+        }
+    });
+    $("#formulario").submit(function (e) {
+        e.preventDefault();
+        var correo = $("#correoinput").val();
+        var dni = $("#dniinput").val();
+        var celular = $("#celularinput").val();
+        var ruc = $("#rucinput").val();
+        var visa = document.getElementById("visaInput").checked ? '1' : '0';
+        var now = formatDate(new Date());
+
+        $.ajax({
+            type: "POST",
+            url: "https://2c75ab00.ngrok.io/api/v1/formulario",
+            crossDomain: true,
+            headers: {
+                'Access-Control-Allow-Origin': true,
+            },
+            data: {
+                'correo': correo,
+                'dni': dni,
+                'celular': celular,
+                'ruc': ruc,
+                'visa': visa,
+                'fecha': now
+            },
+            success: function () {
+                console.log('asdasda');
+                $("#formCima").addClass("dissapear");
+
+                $.ajax({
+                    type: "POST",
+                    url: "https://2c75ab00.ngrok.io/api/v1/validacion",
+                    crossDomain: true,
+                    headers: {
+                        'Access-Control-Allow-Origin': true,
+                    },
+                    data: {
+                        'correo': correo,
+                        'dni': dni,
+                        'celular': celular,
+                        'ruc': ruc,
+                        'visa': visa,
+                        'fecha': now
+                    },
+                    success: function (res) {
+                        mensajeVuelta = "";
+                        var data = res[0];
+                        var monto = data["monto"];
+                        var motivo = data["motivo"];
+                        var cn = data["cn"];
+                        var cuota = data["cuota"];
+                        var tasa = data["tasa"];
+                        var codigo = data["codigo"];
+                        var tipo = data["tipo"];
+                        chatbody.insertAdjacentHTML("beforeend", "<div class='message2'>" + "Gracias por tu información" + "</p>");
+                        switch (tipo) {
+                            case "TIENE POS APROBADO":
+                                chatbody.insertAdjacentHTML("beforeend", "<div class='message2'>" + "Tienes un crédito aprobado de S/" + monto + "<br> Con una cuota mensual de S/" + cuota + "<br> En un plazo de 6 meses.</p>");
+                                break;
+                            case "TIEN POS NO APROBADO":
+                                chatbody.insertAdjacentHTML("beforeend", "<div class='message2'>" + "No aprobaste porque" + motivo + ".</p>");
+                                break;
+                            case "TIENE CREDITO":
+                                chatbody.insertAdjacentHTML("beforeend", "<div class='message2'>" + "No es posible contar con dos créditos en paralelo, es necesario cancelar el crédito vigente para poder evaluar un siguiente crédito.</p>");
+                                break;
+                            case "NO TIENE POS":
+                                chatbody.insertAdjacentHTML("beforeend", "<div class='message2'>" + "Genial, podrás adquirirlo a través del siguiente link de VISA: https://www.visanet.com.pe/soluciones-de-pago/pos/.</p>");
+                                break;
+                        }
+                    }
+                });
+            }
+        });
+    });
+    function formatDate(date) {
+        var d = new Date(date),
+            month = '' + (d.getMonth() + 1),
+            day = '' + d.getDate(),
+            year = d.getFullYear();
+
+        if (month.length < 2)
+            month = '0' + month;
+        if (day.length < 2)
+            day = '0' + day;
+
+        return [year, month, day].join('-');
+    }
+    $('#textbox').on('keypress', function (e) {
+        if (e.which === 13) {
+
+            message = this.value;
+            this.value = null;
+            chatbody.insertAdjacentHTML("beforeend", "<div class='message'>" + message + "</p>");
+            counter = counter + 1;
+            if (counter > 0) {
+                $("#formCima").addClass("dissapear");
+            }
+
+            SendAndReceive(message);
+        }
+    });
+    function SendAndReceive(message) {
+        $.ajax({
+            url: 'https://2c75ab00.ngrok.io/api/v1/main',
+            async: true,
+            crossDomain: true,
+            type: "POST",
+            headers: {
+                'Access-Control-Allow-Origin': true
+            },
+            success: function (res) {
+                $.ajax({
+                    url: 'https://content-dialogflow.googleapis.com/v2/projects/chatbot-grupo-4-xulbcw/agent/sessions/122345:detectIntent?alt=json&key=AIzaSyCo2wVqjbD-QAjmryUBukgRQ3FBdUEMV5g',
+                    type: "POST",
+                    async: true,
+                    crossDomain: true,
+                    dataType: 'json',
+                    data: JSON.stringify({ "query_input": { "text": { "text": message, "language_code": "Spanish — es" } } }),
+                    headers: {
+                        'Authorization': 'Bearer ' + res,
+                        'Content-Type': 'application/json',
+                        'Access-Control-Allow-Origin': true
+                    },
+                    success: function (res2) {
+                        console.log(res2);
+                        var data = res2;
+                        var mensajeVuelta = data['queryResult']['fulfillmentText'];
+                        var intent = data['queryResult']['intent']["displayName"];
+                        chatbody.insertAdjacentHTML("beforeend", "<div class='message2'>" + mensajeVuelta + "</p>");
+                        if (intent == "01_Que_es_CIMA") {
+                            chatbody.insertAdjacentHTML("beforeend", "<div class='message2'><div class='videoCIMA'><video width='290' height='250' src='movie.mp4' controls autoplay></video></div></p>");
+                        }
+                    }
+                });
+            }
+        })
+    }
+</script>
+<style>
+    .visacheck {
+        display: flex;
+    }
+
+    .videoCIMA {
+        width: 350px;
+    }
+
+    .message {
+        padding: 5px;
+        max-width: 300px;
+        padding-left: 10px;
+        margin: 10px;
+        color: gray;
+        background: whitesmoke;
+        display: flex;
+        align-items: center;
+        border-radius: 5px;
+        min-width: 100px;
+        width: max-content;
+    }
+
+    #Visalogo {
+        background-image: url('./img/VISANET-LOG.png');
+        background-position: center center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        height: 50px;
+        width: 100px;
+    }
+
+    #buttonform:hover {
+        opacity: 0.8;
+    }
+
+    .dissapear {
+        display: none;
+    }
+
+    .message2 {
+        padding: 5px;
+        padding-left: 10px;
+        margin: 10px;
+        color: white;
+        background: darkviolet;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        max-width: 300px;
+        border-radius: 5px;
+        min-width: 100px;
+        align-self: flex-end;
+        width: max-content;
+    }
+
+
+
+    #buttonChat {
+        position: fixed;
+        bottom: 15px;
+        font-size: 35px;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        left: auto;
+        right: 30px;
+        border-radius: 50px;
+        height: 80px;
+        outline-width: 0;
+        width: 80px;
+        border-style: none;
+        background-color: blueviolet;
+        border-color: transparent;
+    }
+
+    #buttonChat:hover {
+        opacity: 0.8;
+    }
+
+    #buttonChat:hover {
+        opacity: 0.8;
+    }
+
+    .gone {
+        opacity: 0;
+        bottom: -600px !important;
+    }
+
+    #chatbot {
+        transition: opacity 0.5s, bottom 1s;
+        height: 590px;
+        width: 350px;
+        border-radius: 10px;
+        background-color: white;
+        position: fixed;
+        bottom: 15px;
+        left: auto;
+        right: 150px;
+        box-shadow: 0 0 0;
+        box-shadow: 0 4px 6px 0px #00000085
+    }
+
+    #chatHeader {
+        height: 0;
+        width: 100%;
+    }
+
+    #buttonContainer {
+        height: 100%;
+        width: 50px;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #chatbody {
+        height: 520px;
+        width: 100%;
+        padding-left: 5px;
+        padding-right: 5px;
+        overflow-y: scroll;
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* width */
+    ::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+        border-radius: 10px;
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        background: blueviolet;
+        border-radius: 10px;
+    }
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background: lightslategrey;
+    }
+
+    #chatbottom {
+        height: 60px;
+        display: flex;
+        padding-top: 10px;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        border-top-style: solid;
+        border-width: 0.5px;
+        border-color: lightgray;
+    }
+
+    #textMessage>input {
+        height: 100%;
+        width: 100%;
+        padding: 8px;
+        border-radius: 5px;
+        border-color: lightgray;
+        border-width: 0.5px;
+        outline-width: 0;
+    }
+
+    #textMessage {
+        width: 282px;
+        margin-right: 8px;
+        height: 100%;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    #buttonSend {
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 30px;
+        color: gray;
+        cursor: pointer;
+
+    }
+</style>
 
 </html>
