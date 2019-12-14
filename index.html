@@ -11,7 +11,7 @@
     <title>Cimon de Cima</title>
 </head>
 
-<body>
+<body style="min-height: 590px !important; min-width: 400px;">
     <div id="buttonChat">
         <i class="fas fa-comments"></i>
     </div>
@@ -229,6 +229,14 @@
     }
 </script>
 <style>
+    @media (max-width: 600px) {
+        #chatbot {
+            left: auto !important;
+            right: 80px !important;
+            bottom: 5px;
+        }
+    }
+
     .visacheck {
         display: flex;
     }
